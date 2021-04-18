@@ -5,15 +5,20 @@ import { AppComponent } from './app.component';
 import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
 import { ConsultaClientesComponent } from './consulta-clientes/consulta-clientes.component';
 
-//importando biblioteca de rotas do angular
+//importando a biblioteca de rotas do angular..
 import { Routes, RouterModule } from '@angular/router';
+
+//importando a bilbioteca para executar chamadas na API
+import { HttpClientModule } from '@angular/common/http';
+
+//importando as bilbiotecas para desenvolvimento de formulários reativos
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //mapeamento das rotas para acesso aos componentes
 const routes: Routes = [
-  { path : 'cadastro-clientes', component : CadastroClientesComponent },
-  { path : 'consulta-clientes', component: ConsultaClientesComponent } 
+  { path: 'cadastro-clientes', component: CadastroClientesComponent },
+  { path: 'consulta-clientes', component: ConsultaClientesComponent }
 ]
-
 
 @NgModule({
   declarations: [
@@ -23,6 +28,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule, //registrando
+    FormsModule, //registrando
+    ReactiveFormsModule, //registrando
     //registrando o mapeamento de rotas criado no projeto
     RouterModule.forRoot(routes)
   ],
@@ -30,3 +38,4 @@ const routes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
